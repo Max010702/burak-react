@@ -18,3 +18,19 @@ export default function HomePage() {
     </div>
   );
 }
+
+// <Card className="card">
+//   <CardCover>
+//     <img src={ele.imagePath} alt="" />
+//   </CardCover>
+//   <CardCover className="card-cover"/>
+//   <CardContent sx={{justifyContent: "flex-end"}}>
+//     <Stack
+//     flexDirection={"row"}
+//     justifyContent={"space-between"}>
+//       <Typography level="h2" fontSize={"lg"} textColor={"#fff"} mb={1}> {ele.productName}
+
+//       </Typography>
+//     </Stack>
+//   </CardContent>
+// </Card>
