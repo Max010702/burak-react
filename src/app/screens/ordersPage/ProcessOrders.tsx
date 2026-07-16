@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import TabPanel from "@mui/lab/TabPanel";
@@ -8,11 +7,11 @@ export default function ProcessOrders() {
   return (
     <TabPanel value={"2"}>
       <Stack>
-        {[1, 2].map((ele, index) => {
+        {[1, 2].map((_ele, index) => {
           return (
             <Box key={index} className={"order-main-box"}>
               <Box className={"order-box-scroll"}>
-                {[1, 2].map((ele2, index2) => {
+                {[1, 2].map((_ele2, index2) => {
                   return (
                     <Box key={index2} className={"orders-name-price"}>
                       <img
