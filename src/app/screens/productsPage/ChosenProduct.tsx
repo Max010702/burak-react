@@ -11,6 +11,32 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
+import { useDispatch, useSelector } from "react-redux";
+import { type Dispatch } from "@reduxjs/toolkit";
+import { setChoosenProduct, setRestaurant } from "./slice";
+import { createSelector } from "reselect";
+import { retrieveChoosenProduct, retrieveRestaurant } from "./selector";
+import type { Product } from "../../../lib/types/product";
+
+/** REDUX SLICE % SELECTOR */
+const actionDispatch = (dispatch: Dispatch) => ({
+  setRestaurant: (data: Product[]) => dispatch(setRestaurant(data)),
+  setChoosenProduct: (data: Product[]) => dispatch(setChoosenProduct(data)),
+});
+
+const choosenProductRetriever = createSelector(
+  retrieveChoosenProduct,
+  (chosenProduct) => ({
+    chosenProduct,
+  }),
+);
+const restaurantRetriever = createSelector(
+  retrieveRestaurant,
+  (restaurant) => ({
+    restaurant,
+  }),
+);
+
 export default function ChosenProduct() {
   return (
     <div className={"chosen-product"}>
