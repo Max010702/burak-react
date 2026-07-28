@@ -13,7 +13,7 @@ import "swiper/css/thumbs";
 
 import { useDispatch, useSelector } from "react-redux";
 import { type Dispatch } from "@reduxjs/toolkit";
-import { setChoosenProduct as setChosenProduct, setRestaurant } from "./slice";
+import { setChosenProduct as setChosenProduct, setRestaurant } from "./slice";
 import { createSelector } from "reselect";
 import {
   retrieveChoosenProduct as retrieveChosenProduct,
@@ -26,11 +26,12 @@ import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import type { Member } from "../../../lib/types/member";
 import { serverApi } from "../../../lib/config";
+import type { CartItem } from "../../../lib/types/search";
 
 /** REDUX SLICE % SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setRestaurant: (data: Member) => dispatch(setRestaurant(data)),
-  setChosenProduct: (data: Product[]) => dispatch(setChosenProduct(data)),
+  setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
 });
 
 const chosenProductRetriever = createSelector(
@@ -46,7 +47,12 @@ const restaurantRetriever = createSelector(
   }),
 );
 
-export default function ChosenProduct() {
+interface ChosenProductProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function ChosenProduct(props: ChosenProductProps) {
+  const { onAdd } = props;
   const { setRestaurant, setChosenProduct: setChosenProduct } =
     actionDispatch(useDispatch());
   const { productId } = useParams<{ productId: string }>();
