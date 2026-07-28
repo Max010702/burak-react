@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import type { Member } from "../../lib/types/member";
 import { GlobalContext } from "../hooks/useGlobals";
 
-const ContextProvider: React.FC<{ chldren: ReactNode }> = ({ children }) => {
+const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const cookies = new Cookies();
   if (!cookies.get("accessToken")) localStorage.removeItem("memberData");
 

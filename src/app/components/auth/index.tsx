@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
-import { Fab, Stack, TextField, Box } from "@mui/material";
+import { Fab, Stack, TextField } from "@mui/material";
 import styled from "styled-components";
 import LoginIcon from "@mui/icons-material/Login";
 import type { T } from "../../../lib/types/common";
