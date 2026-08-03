@@ -11,7 +11,6 @@ import type { CartItem } from "../../../lib/types/search";
 import { Messages, serverApi } from "../../../lib/config";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
-import { Message } from "@mui/icons-material";
 import OrderService from "../../services/OrderService";
 
 interface Basketprops {
@@ -24,7 +23,7 @@ interface Basketprops {
 
 export default function Basket(props: Basketprops) {
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
-  const { authMember } = useGlobals();
+  const { authMember, setOrderBuilder } = useGlobals();
   const history = useHistory();
   const itemsPrice: number = cartItems.reduce(
     (a: number, c: CartItem) => a + c.quantity * c.price,
@@ -55,7 +54,7 @@ export default function Basket(props: Basketprops) {
 
       onDeleteAll();
 
-      // REFRESH VIA CONTEXT
+      setOrderBuilder(new Date());
       history.push("/orders");
     } catch (err) {
       console.log(err);
@@ -183,4 +182,7 @@ export default function Basket(props: Basketprops) {
       </Menu>
     </Box>
   );
+}
+function setOrderBuilder(arg: Date) {
+  throw new Error("Function not implemented.");
 }
