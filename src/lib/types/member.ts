@@ -8,7 +8,7 @@ export interface Member {
   memberPhone: string;
   memberPassword?: string;
   memberAddress?: string;
-  memberdesc?: string;
+  memberDesc?: string;
   memberImage?: string;
   memberPoints: number;
   createdAt: Date;
@@ -22,7 +22,7 @@ export interface MemberInput {
   memberPhone: string;
   memberPassword: string;
   memberAddress?: string;
-  memberdesc?: string;
+  memberDesc?: string;
   memberImage?: string;
   memberPoints?: number;
 }
@@ -37,6 +37,6 @@ export interface MemberUpdateInput {
   memberPhone?: string;
   memberPassword?: string;
   memberAddress?: string;
-  memberdesc?: string;
+  memberDesc?: string;
   memberImage?: string;
 }
